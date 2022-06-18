@@ -32,15 +32,17 @@ const Modal = (props) => {
         };
 
         const getBooking = async () => {
-            const url = `https://pure-tor-94821.herokuapp.com/booking`;
+            const url = `http://localhost:5000/booking`;
             const { data } = await axios.post(url, booking);
             console.log(data);
             if (data.success) {
                 toast(`booking added on ${formattedDate} at ${slot}`);
+                
                 refetch();
             } else {
                 toast.error(`sorry, you've already booked it on ${data.result.appointmentDate} at ${data.result.appointmentTime}`);
             }
+            
         };
         getBooking();
 

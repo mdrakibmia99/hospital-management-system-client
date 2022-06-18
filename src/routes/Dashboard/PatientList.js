@@ -1,41 +1,24 @@
+
+
+
 import axios from 'axios';
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import auth from '../../firebase.init';
+import AppointmentPatientList from './AppointmentPatientList';
 import AppointmentTable from './AppointmentTable';
 
-const MyAppointments = () => {
-    const [myAppointments, setMyAppointments] = useState([]);
-    const [user] = useAuthState(auth);
-    const navigate = useNavigate();
-
+const PatientList = () => {
+    const [lists, setLists] = useState([]);
     useEffect(() => {
-        if (user) {
-            const getMyAppointments = async () => {
-                const url = `http://localhost:5000/bookings?email=${user.email}`;
-                const res = await axios.get(url, {
-                    method: "GET",
-                    headers: {
-                        "authorization": `Bearer ${localStorage.getItem('accessToken')}`
-                    }
-                });
-                console.log(res?.status);
-                if (res?.status === 401 || res?.status === 403) {
-                    signOut();
-                    localStorage.removeItem('accessToken');
-                    navigate('/login');
-                }
-                setMyAppointments(res?.data);
-            };
-            getMyAppointments();
-        }
-    }, [user, navigate]);
+        axios.get('http://localhost:5000/oncologists')
+            .then(res => setLists(res.data))
+    }, []);
+     console.log(lists);
     return (
         <div>
-            <PageTitle title={'my appointments'} />
+             
+             <div>
+            <PageTitle title={'Patient List'} />
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -45,22 +28,25 @@ const MyAppointments = () => {
                                 <th></th>
                                 <th>Name</th>
                                 <th>Service</th>
+                                <th>Email</th>
                                 <th>Time</th>
-                                <th>Payment</th>
+                                <th>Meeting</th>
+                                <th>Send Message</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                myAppointments?.length === 0
+                                lists?.length === 0
                                     ?
                                     <div className="alert alert-info shadow-lg mt-12">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                            <span>No treatment taken by you still now.</span>
+                                            <span>No Patient available</span>
                                         </div>
                                     </div>
                                     :
-                                    myAppointments.map((myAppointment, index) => <AppointmentTable
+                                    lists.map((myAppointment, index) => <AppointmentPatientList
                                         key={myAppointment._id}
                                         myAppointment={myAppointment}
                                         index={index}
@@ -71,7 +57,9 @@ const MyAppointments = () => {
                 </div>
             </div>
         </div>
+             
+        </div>
     );
 };
 
-export default MyAppointments;
+export default PatientList;

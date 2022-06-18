@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Footer from '../../shared/Footer/Footer';
+import AllReviews from './AllReviews';
 import Appointment from './Appointment';
 import AppointmentDirect from './AppointmentDirect';
 import Banner from './Banner';
@@ -11,7 +12,7 @@ import Testimonial from './Testimonial';
 const Home = () => {
     return (
         <div>
-            <PageTitle title={'doctors portal - home'} />
+            <PageTitle title={'Home'} />
             {/* banner */}
             <Banner />
             <div
@@ -20,6 +21,8 @@ const Home = () => {
                 {/* appointment information */}
                 <Appointment />
 
+                <AllReviews></AllReviews>
+
                 {/* services */}
                 <Services />
 
@@ -27,7 +30,7 @@ const Home = () => {
                 <AppointmentDirect />
 
                 {/* Testimonial */}
-                <Testimonial />
+                {/* <Testimonial /> */}
 
                 {/* contact */}
                 <Contact />

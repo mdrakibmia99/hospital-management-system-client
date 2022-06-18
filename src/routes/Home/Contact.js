@@ -14,10 +14,48 @@ const Contact = () => {
                         <h2 className='text-3xl mt-4 text-white'>Stay connected with us</h2>
                     </div>
                     <div className='text-center'>
-                        <input type="text" placeholder="Email Address" className="input w-full mb-3 " />
-                        <input type="text" placeholder="Subject" className="input w-full mb-3" />
-                        <textarea className="textarea w-full mb-3 h-40" placeholder="Your message"></textarea>
-                        <button className="btn border-0 font-bold text-white bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC] px-12">Submit</button>
+                    <form
+                        action="https://formsubmit.co/rkrakibhasan680@gmail.com"
+                        method="POST"
+                        className="card-body"
+                    >
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Your Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                name="name"
+                                className="input input-bordered"
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                name="email"
+                                className="input input-bordered"
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Your message</span>
+                            </label>
+                            <textarea
+                                type="text"
+                                placeholder="Your message"
+                                name="message"
+                                className="input input-bordered"
+                            />
+                        </div>
+                        <div className="form-control mt-6">
+                            <input type="submit" className="btn btn-primary" value="Send Email" />
+                        </div>
+                    </form>
                     </div>
                 </div>
             </div>

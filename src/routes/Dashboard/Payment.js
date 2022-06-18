@@ -6,11 +6,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { Elements } from '@stripe/react-stripe-js';
 
-const stripePromise = loadStripe('pk_test_51L1UJyGRKrLWu7ojISpbxVO8rKxWSJ44p1Yt61p6zV7PaM3G6WRLKhJSY47ZIDJhtZ0yiRSCZlqpf541x4JaYKQ700Iam3gy2f');
+const stripePromise = loadStripe('pk_test_51L19f1KRH8pza7uwgnzclYxnZ2NFCFnLEJE5sNWCxZGJ3IxKdPaeekCsJKRIvbUtZGCGwVsF2Nq6fDvs2icv529q005HXN9rtU');
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://pure-tor-94821.herokuapp.com/booking/${id}`;
+    const url = `http://localhost:5000/booking/${id}`;
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: "GET",
         headers: {
@@ -36,12 +36,12 @@ const Payment = () => {
             <h2 className='text-xl text-green-500'>This is Payment route: <span className='text-red-500'>{id}</span></h2>
             <div className='hero min-h-screen bg-base-200'>
                 <div className='hero-content'>
-                    <div class="card w-full bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="card-title">{appointment?.patientName}</h2>
+                    <div className="card w-full bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title">{appointment?.patientName}</h2>
                             <p>Your appointment for <span className='bg-green-300'>{appointment.treatmentName}</span> is set on <span className='text-red-500'>{appointment.appointmentDate}</span> at <span className='text-red-500'>{appointment.appointmentTime}</span></p>
                             <p className='text-red-500 flex items-center'>You have to pay $<span className='text-green-500 text-xl'>{appointment.price}</span></p>
-                            <div class="card-actions block m-4">
+                            <div className="card-actions block m-4">
                                 <Elements stripe={stripePromise}>
                                     <CheckoutForm
                                         key={appointment._id}

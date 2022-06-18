@@ -2,6 +2,7 @@ import React from 'react';
 import chair from '../../assets/images/chair.png';
 import chairBG from '../../assets/images/bg.png';
 import StaticBtn from '../../components/StaticBtn/StaticBtn';
+import hospital from '../../assets/images/hospital-img.jpg'
 
 const Banner = () => {
     return (
@@ -10,10 +11,10 @@ const Banner = () => {
             style={{ backgroundImage: `url(${chairBG})` }}
         >
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src={chair} className="rounded-lg shadow-2xl lg:w-1/2" alt='hero_image' />
+                <img src={hospital} className="rounded-lg shadow-2xl lg:w-1/2" alt='hero_image' />
                 <div>
-                    <h1 className="text-5xl font-bold  lg:w-1/2 md:w-1/2">Your New Smile Starts Here</h1>
-                    <p className="py-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                    <h1 className="text-4xl font-bold  lg:w-10/12 md:w-1/2">Welcome To Our Hospital Management System</h1>
+                    <p className="py-6">Hospital management system is a computer system that helps manage the information related to health care and aids in the job completion of health care providers effectively</p>
                     <StaticBtn>Get Started</StaticBtn>
                 </div>
             </div>

@@ -6,7 +6,7 @@ const useToken = (user) => {
         const email = user?.user?.email;
         if (email) {
             const currentUser = { email: email };
-            const url = `https://pure-tor-94821.herokuapp.com/user/${email}`;
+            const url = `http://localhost:5000/user/${email}`;
             fetch(url, {
                 method: "PUT",
                 headers: {

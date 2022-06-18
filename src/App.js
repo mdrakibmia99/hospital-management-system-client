@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
-import About from './routes/About/About';
 import Appointment from './routes/Appointment/Appointment';
 import ContactUs from './routes/ContactUs/ContactUs';
 import Home from './routes/Home/Home';
@@ -19,6 +18,9 @@ import RequireAdmin from './components/RequireAdmin/RequireAdmin';
 import AddDoctor from './routes/Dashboard/AddDoctor';
 import ManageDoctors from './routes/Dashboard/ManageDoctors';
 import Payment from './routes/Dashboard/Payment';
+import DashboardIndex from './routes/Dashboard/DashboardIndex';
+import PatientList from './routes/Dashboard/PatientList';
+
 
 function App() {
   return (
@@ -28,7 +30,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/about' element={<About />} />
         <Route path='/appointment' element={
           <RequireAuth>
             <Appointment />
@@ -39,8 +40,12 @@ function App() {
             <Dashboard />
           </RequireAuth>
         } >
-          <Route index element={<MyAppointments />} /> {/* default one */}
+
+          <Route index element={<DashboardIndex />} /> {/* default one */}
+          <Route path='/dashboard/myappointment' element={<MyAppointments />} /> {/* default one */}
           <Route path='/dashboard/reviews' element={<Reviews />} />
+          <Route path='/dashboard/patientlist' element={<PatientList></PatientList>} />
+
           <Route path='/dashboard/payment/:id' element={<Payment />} />
           <Route path='/dashboard/users' element={
             <RequireAdmin>

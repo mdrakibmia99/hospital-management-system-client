@@ -7,19 +7,12 @@ import Loading from '../../components/Loading/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://pure-tor-94821.herokuapp.com/services').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(res => res.json()))
 
     // const imageStorageKey = '4295ac4d47b569312bea67b440cdbdbb';
     const imageStorageKey = '104449008997c085d936fea4a24f3297';
 
-    /**
-     * 3 ways to store images
-     * 1. Third party storage //Free open public storage is ok for Practice project 
-     * 2. Your own storage in your own server (file system)
-     * 3. Database: Mongodb 
-     * 
-     * YUP: to validate file: Search: Yup file validation for react hook form
-    */
+   
     const onSubmit = async data => {
         const image = data.image[0];
         const formData = new FormData();
@@ -41,7 +34,7 @@ const AddDoctor = () => {
                     }
                     console.log(doctor);
                     // send to your database 
-                    fetch('https://pure-tor-94821.herokuapp.com/doctor', {
+                    fetch('http://localhost:5000/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

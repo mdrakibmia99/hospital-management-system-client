@@ -6,6 +6,7 @@ import Error from '../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import auth from '../../firebase.init';
+import loginBg from '../../assets/images/hospital-new.jpg'
 
 const Reset = () => {
     const [user] = useAuthState(auth);
@@ -35,16 +36,19 @@ const Reset = () => {
         navigate(from, { replace: true });
     }
     return (
-        <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-1/2 md:w-1/2 w-full lg:px-0 md:px-0 px-4'>
-            <PageTitle title={'doctors portal - reset password'} />
-            <div className="block p-6 rounded-xl shadow-xl bg-white max-w-sm mx-auto">
-                <h2 className='text-3xl mb-4'>Forgot password!</h2>
-                {sending && <Loading />}
-                {error && <Error message={error.message} />}
-                <form onSubmit={handleResetForm}>
-                    <div className="form-group mb-6">
-                        <label htmlFor="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
-                        <input type="email" className="form-control
+        <div
+            className="hero min-h-screen bg-base-100 bg-no-repeat  bg-bottom"
+            style={{ backgroundImage: `url(${loginBg})` }}>
+            <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-1/2 md:w-1/2 w-full lg:px-0 md:px-0 px-4'>
+                <PageTitle title={'Reset password'} />
+                <div className="block p-6 rounded-xl shadow-xl bg-white max-w-sm mx-auto">
+                    <h2 className='text-3xl mb-4'>Forgot password!</h2>
+                    {sending && <Loading />}
+                    {error && <Error message={error.message} />}
+                    <form onSubmit={handleResetForm}>
+                        <div className="form-group mb-6">
+                            <label htmlFor="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
+                            <input type="email" className="form-control
                             block
                             w-full
                             px-3
@@ -59,13 +63,13 @@ const Reset = () => {
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
-                            aria-describedby="emailHelp" placeholder="Enter email"
-                            name='email'
-                            required
-                        />
-                    </div>
-                    <input type="submit" value="Reset"
-                        className="
+                                aria-describedby="emailHelp" placeholder="Enter email"
+                                name='email'
+                                required
+                            />
+                        </div>
+                        <input type="submit" value="Reset"
+                            className="
                         btn 
                         btn-block 
                         bg-white
@@ -79,8 +83,9 @@ const Reset = () => {
                         w-fll 
                         mx-auto 
                         rounded-lg"
-                    />
-                </form>
+                        />
+                    </form>
+                </div>
             </div>
         </div>
     );

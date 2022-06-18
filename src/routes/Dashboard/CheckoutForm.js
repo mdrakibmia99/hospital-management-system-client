@@ -14,7 +14,7 @@ const CheckoutForm = ({ appointment }) => {
     const { price, patientName, patientEmail, _id } = appointment;
 
     // useEffect(() => {
-    //     fetch('https://pure-tor-94821.herokuapp.com/create-payment-intent', {
+    //     fetch('http://localhost:5000/create-payment-intent', {
     //         method: "POST",
     //         headers: {
     //             "content-type": "application/json",
@@ -27,7 +27,7 @@ const CheckoutForm = ({ appointment }) => {
     // }, [price]);
 
     useEffect(() => {
-        fetch('https://pure-tor-94821.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -94,7 +94,7 @@ const CheckoutForm = ({ appointment }) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`https://pure-tor-94821.herokuapp.com/booking/${_id}`, {
+            fetch(`http://localhost:5000/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

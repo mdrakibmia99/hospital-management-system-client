@@ -8,8 +8,8 @@ const DoctorRow = ({ index, doctor, setDeleteDoctor }) => {
             <th>{index + 1}</th>
             <td>
                 {/* <img src={img} alt="avatar" className='w-8 h-8 rounded-full object-cover' /> */}
-                <div class="avatar">
-                    <div class="w-8 mask mask-hexagon">
+                <div className="avatar">
+                    <div className="w-8 mask mask-hexagon">
                         <img src={img} alt='avatar' />
                     </div>
                 </div>
@@ -17,7 +17,7 @@ const DoctorRow = ({ index, doctor, setDeleteDoctor }) => {
             <td>{name}</td>
             <td>{specialty}</td>
             <td>
-                <label for="my-modal-6" onClick={() => setDeleteDoctor(doctor)} className="btn btn-active btn-sm bg-red-500 border-0 text-white">Remove</label>
+                <label htmlFor="my-modal-6" onClick={() => setDeleteDoctor(doctor)} className="btn btn-active btn-sm bg-red-500 border-0 text-white">Remove</label>
             </td>
         </tr>
     );

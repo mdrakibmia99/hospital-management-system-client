@@ -6,6 +6,8 @@ import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import useToken from '../../hooks/useToken';
+import loginBg from '../../assets/images/hospital-new.jpg' 
+
 
 const Login = () => {
     const [user] = useAuthState(auth);
@@ -58,8 +60,11 @@ const Login = () => {
     }
 
     return (
+        <div
+        className="hero min-h-screen bg-base-100 bg-no-repeat  bg-bottom"
+        style={{ backgroundImage: `url(${loginBg})` }}>
         <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-1/2 md:w-1/2 w-full lg:px-0 md:px-0 px-4'>
-            <PageTitle title={'doctors portal - login'} />
+            <PageTitle title={'Login'} />
             <div className="flex flex-col w-full border-opacity-50">
                 <div>
                     <div className="w-full p-6 m-auto bg-white rounded-md shadow-lg lg:max-w-md">
@@ -120,6 +125,7 @@ const Login = () => {
                     Continue with google
                 </button>
             </div>
+        </div>
         </div>
     );
 };

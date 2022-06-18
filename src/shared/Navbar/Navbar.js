@@ -3,13 +3,14 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import CustomLink from '../../components/CustomLink/CustomLink';
 import auth from '../../firebase.init';
+import logo from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
 
     const navItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>
-        <li><CustomLink to='/about'>About</CustomLink></li>
         <li><CustomLink to='/appointment'>Appointment</CustomLink></li>
         <li><CustomLink to='/dashboard'>Dashboard</CustomLink></li>
         <li><CustomLink to='/contactUs' className='whitespace-nowrap'>Contact Us</CustomLink></li>
@@ -43,7 +44,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <CustomLink to='/' className="text-xl whitespace-nowrap">Doctors Portal</CustomLink>
+                    <Link to='/' className="text-xl whitespace-nowrap"> <img src={logo} alt="hospital icon" /> </Link>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

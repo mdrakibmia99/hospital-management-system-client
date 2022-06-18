@@ -1,15 +1,14 @@
-# Doctors Portal
-`Live site`: [click here](https://doctors-portal-d1164.web.app/)  
-`Server side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-server)
+# Hospital Management
+`Live site`: 
+`Server side code repo`: 
 <br/>
-`Server link`: [click here](https://pure-tor-94821.herokuapp.com/)
+
 
 **Wanna use this as your client side**
 ```bash
-git clone https://github.com/hasibulislam999/doctors-portal-client.git
+Md Rakib mia
 ```
-
-
+# Hospital Management System
 ## Technologies used here:
 * React router
 * Google firebase
@@ -19,6 +18,12 @@ git clone https://github.com/hasibulislam999/doctors-portal-client.git
 * React day picker
 * React Axios
 * React query
+* node js
+* express js
+* mongodb
+* React toastify
+* Stripe api for payment 
+
 
 **To install them, copy following:**
 ```bash
